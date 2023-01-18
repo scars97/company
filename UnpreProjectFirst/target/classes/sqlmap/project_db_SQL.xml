@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+	<insert id="insert" parameterType="hashMap"
+		useGeneratedKeys="true" keyProperty="user_id">  
+    <![CDATA[
+    insert into user
+    values
+    (#{user_id}, #{pwd}, #{user_name}, #{user_tel}, #{email}, #{nickname})
+    ]]>
+	</insert>
+	
+	<select id="logincheck" parameterType="hashMap" resultType="hashMap">  
+    <![CDATA[
+    select nickname
+    from user
+    where user_id = #{userID} and pwd = #{userPW}
+    ]]>
+	</select>
+</mapper>
