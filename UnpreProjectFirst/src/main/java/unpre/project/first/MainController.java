@@ -2,6 +2,9 @@ package unpre.project.first;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,7 +54,7 @@ public class MainController {
 
 	    String userId = this.projectservice.create(map);
 	    if(userId != null) {
-	    	mav.setViewName("redirect:/bar");
+	    	mav.setViewName("main/login");
 	    }
 	    return mav;
 	}
@@ -62,13 +65,33 @@ public class MainController {
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView logincheck(@RequestParam Map<String, Object> map) {
+	public ModelAndView logincheck(@RequestParam Map<String, Object> map, HttpServletRequest request) {
 	    Map<String, Object> nickname = this.projectservice.check(map);
 
 	    ModelAndView mav = new ModelAndView();
 	    mav.addObject("data", nickname);
-	    
-	    mav.setViewName("/main/logindetail");
+	   
+	    HttpSession session = request.getSession();
+	    if(nickname != null) {
+	    	session.setAttribute("signIn", nickname);
+	    	System.out.println(session.getId() + "," + session.getAttribute("signIn"));
+	    	mav.setViewName("main/logindetail");
+	    }else {
+	    	session.setAttribute("signIn", null);
+	    	mav.setViewName("redirect:/login");
+	    }	    
 	    return mav;
+	}
+	
+	@RequestMapping(value="/logindetail", method= RequestMethod.GET)
+	public ModelAndView logindetail() {
+		return new ModelAndView("main/logindetail");
+	}
+	
+	@RequestMapping(value="/logout", method= RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.invalidate();
+		System.out.println(session.getId() + "," + session.getAttribute("signIn"));
+		return "redirect:/login";
 	}
 }

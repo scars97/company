@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>${data.nickname } 님 환영합니다</h1>
+<h1>${data.nickname } 환영합니다.</h1>
+<input type="button" name="logout" value="로그아웃" onclick="location.href='logout'">
 </body>
 </html>
