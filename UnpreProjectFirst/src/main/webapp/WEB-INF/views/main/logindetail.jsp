@@ -9,6 +9,6 @@
 </head>
 <body>
 <h1>${data.nickname } 환영합니다.</h1>
-<input type="button" name="logout" value="로그아웃" onclick="location.href='logout'">
+<a href="logout.do">로그아웃</a>
 </body>
 </html>

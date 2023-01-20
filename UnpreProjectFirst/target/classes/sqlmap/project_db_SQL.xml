@@ -12,7 +12,7 @@
 	
 	<select id="logincheck" parameterType="hashMap" resultType="hashMap">  
     <![CDATA[
-    select nickname
+    select *
     from user
     where user_id = #{userID} and pwd = #{userPW}
     ]]>
