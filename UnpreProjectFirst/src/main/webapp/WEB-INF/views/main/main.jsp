@@ -1,80 +1,101 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-	rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link rel="stylesheet" href="/resources/css/searchbar.css">
+    <style>
+  .main_image {
+    position: relative;
+    
+  }
+  .main_image_text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+    color: white;
+    font-size:10px;
+  }
+  </style>
 <title>Insert title here</title>
+
 
 </head>
 <body>
-	<header style="margin-top: 70px;">
-		<nav class="navbar navbar-expand-lg bg-white fixed-top"
-			style="height: 59px;">
-			<div class="container ">
-				<a class="navbar-brand" href="main"><img
-					src="https://scontent-ssn1-1.xx.fbcdn.net/v/t39.30808-6/324743408_1194186174806270_7811699012082904800_n.jpg?stp=dst-jpg_s600x600&_nc_cat=102&ccb=1-7&_nc_sid=730e14&_nc_ohc=A50zUfLChPsAX9RuQZK&_nc_ht=scontent-ssn1-1.xx&oh=00_AfBLd80qeHx9BxDWzyxTURP1ysgn_lh9IqSDK9A2QoUQfw&oe=63C300E6"
-					style="width: 10%; height: 10%" alt="logo"></a>
-				<button class="navbar-toggler" type="button"
-					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse justify-content-end"
-					id="navbarSupportedContent">
-					<ul class="navbar-nav" style="height: 60px;">
-						<li class="nav-item"
-							style="border-right: 2px solid; border-left: 2px solid; width: 85px; text-align: center; margin-top: 15px;">
-							<a class="nav-link active" href="#">커뮤니티</a>
-						</li>
-						<li class="nav-item"
-							style="border-right: 2px solid; width: 85px; text-align: center; margin-top: 15px;">
-							<a class="nav-link active" href="#">대자보</a>
-						</li>
+<!-- upper navbar here -->
+<jsp:include page="./common/navbar.jsp"/>
 
-						<li class="nav-item"
-							style="border-right: 2px solid; width: 85px; text-align: center; margin-top: 15px;">
-							<a class="nav-link active" href="bar">Bar</a>
-						</li>
-						<li class="nav-item"
-							style="width: 85px; text-align: center; margin-top: 15px;">
-							<c:if test="${signIn == null }">
-								<a class="nav-link active" href="login.do">로그인</a>
-							</c:if>
-							<c:if test="${signIn != null }">
-								<a class="nav-link active" href="logout.do">${signIn.userID }로그아웃</a>
-							</c:if>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
-	<main>
+<main>
+<div class="container mt-3">
+        <p/>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ul>
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/resources/image/whiskey1.png" alt="Los Angeles" width="1100" height="500">
+                </div>
+                <div class="carousel-item">
+                    <img src="/resources/image/whiskey1.png" alt="Chicago" width="1100" height="500">
+                </div>
+                <div class="carousel-item">
+                    <img src="/resources/image/whiskey2.png" alt="New York" width="1100" height="500">
+                </div>
+            </div>
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" data-slide="next"> 
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </div>
+</main><br><br>
 
-		<h1>메인페이지 내용</h1>
-		<br> <br> <br> <br> <br> <br> <br>
-		<br> <br> <br> <br> <br> <br> <br>
-		<br> <br> <br> <br> <br> <br> <br>
-		<br> <br> <br>
+<jsp:include page="./common/searchbar.jsp"/><br>
 
-	</main>
+<div class="container text-center">
+  <div class="row m-5">
+    <div class="col">
+      <img src="/resources/image/mainwhiskey1.png" style="width:200px; height:150px; border-radius: 10%; background-color: rgba(0,0,0,0.1);">
+      <h3 class="main_image_text">#위스키에 대해 알아보자</h3>
+    </div>
+    <div class="col">
+      <img src="/resources/image/mainwine.png" style="width:200px; height:150px; border-radius: 10%;">
+      <h3 class="main_image_text">#와인은 어렵지 않다!</h3>
+    </div>
+    <div class="col">
+      <img src="/resources/image/mainbeer.png" style="width:200px; height:150px; border-radius: 10%;">
+      <h3 class="main_image_text">#가장 맛있는 맥주는?</h3>
+    </div>
+    <div class="col">
+      <img src="/resources/image/mainfood.png" style="width:200px; height:150px; border-radius: 10%;">
+      <h3 class="main_image_text">#숙취해소엔</h3>
+    </div>
+  </div>
+  
+</div>
 
-	<!-- Footer -->
-	<footer>
-		<div class="container-fluid text-bg-dark p-3 sticky-bottom"
-			style="height: 150px;">
-			<h1 style="font-color: white;">여기가 풋터</h1>
-		</div>
-	</footer>
-	
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- footer here -->
+<jsp:include page="./common/footer.jsp"/>
+<script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+   <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -8,4 +8,6 @@ public interface ProjectService {
 
 	Map<String, Object> check(Map<String, Object> map);
 
+	String boardcreate(Map<String, Object> map);
+
 }

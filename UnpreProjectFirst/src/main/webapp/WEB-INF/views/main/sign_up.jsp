@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>회원가입</h1>
-<form action="login.do" method="post">
+<form method="post">
 	<table>
 		<tr>
 			<td>아이디 : </td>

@@ -1,0 +1,55 @@
+@charset "EUC-KR";
+.asdf{
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+.search-box{
+  padding: 10px;
+  position: relative;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 50px;
+  background-color: #fff;
+  border: 1px solid #d7d7d7;
+  border-radius: 30px;
+  transition: 0.4s;
+  width:50px;
+  
+}
+.search-box:hover{
+  box-shadow: 0px 0px .5px 1px #d7d7d7;
+  width: 310px;
+}
+.search-btn{
+  text-decoration: none;
+  float: right;
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d7d7d7;
+}
+.search-box:hover > .search-btn{
+  background-color: #fff;
+}
+.search-txt{
+  display: flex;
+  padding: 0;
+  width: 0px;
+  border:none;
+  background: none;
+  outline: none;
+  float: left;
+  font-size: 1rem;
+  line-height: 30px;
+  transition: .4s;
+}
+.search-box:hover > .search-txt{
+  width: 240px;
+  padding: 0 6px;
+}

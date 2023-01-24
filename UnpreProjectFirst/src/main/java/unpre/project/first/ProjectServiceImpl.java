@@ -21,6 +21,15 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 	
 	@Override
+	public String boardcreate(Map<String, Object> map) {
+	    int affectRowCount = this.projectdao.boardinsert(map);
+	    if (affectRowCount ==  1) {
+	        return map.get("b_title").toString();
+	    }
+	    return null;
+	}
+	
+	@Override
 	public Map<String, Object> check(Map<String, Object> map){
 	    return this.projectdao.select(map);
 	}

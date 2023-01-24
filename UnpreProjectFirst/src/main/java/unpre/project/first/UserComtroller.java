@@ -29,7 +29,7 @@ public class UserComtroller {
 
 	    String userId = this.projectservice.create(map);
 	    if(userId != null) {
-	    	mav.setViewName("main/login");
+	    	mav.setViewName("redirect:/login.do");
 	    }
 	    return mav;
 	}
@@ -49,9 +49,9 @@ public class UserComtroller {
 	    HttpSession session = request.getSession();
 	    if(userinfo != null) {
 	    	session.setAttribute("signIn", userinfo);
-	    	System.out.println(session.getAttribute("signIn"));
+//	    	System.out.println(session.getAttribute("signIn"));
 	    	
-	    	mav.setViewName("main/main");
+	    	mav.setViewName("redirect:/main");
 	    }else {
 	    	session.setAttribute("signIn", null);
 	    	mav.setViewName("redirect:/login.do");
@@ -64,6 +64,22 @@ public class UserComtroller {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		return "redirect:/login.do";
+		return "redirect:/main";
+	}
+	
+	@RequestMapping(value="/board.do")
+	public String board() {	
+		return "main/board_write";
+	}
+	
+	@RequestMapping(value = "/board_write.do", method = RequestMethod.POST)
+	public ModelAndView boardcreatePost(@RequestParam Map<String, Object> map) {
+	    ModelAndView mav = new ModelAndView();	    	    	 
+	    String btitle = this.projectservice.boardcreate(map);
+	    System.out.println(btitle);
+	    if(btitle != null) {
+	    	mav.setViewName("redirect:/login.do");
+	    }
+	    return mav;
 	}
 }

@@ -19,4 +19,8 @@ public class ProjectDAO {
 	public Map<String, Object> select(Map<String, Object> map) {
 		  return this.sqlSessionTemplate.selectOne("user.logincheck", map);
 		}
+	
+	public int boardinsert(Map<String, Object> map) {
+		  return this.sqlSessionTemplate.insert("board.boardinsert", map);
+		}
 }
