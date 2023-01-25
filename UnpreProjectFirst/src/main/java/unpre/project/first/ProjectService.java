@@ -10,7 +10,7 @@ public interface ProjectService {
 	
 	String boardcreate(Map<String, Object> map);
 
-//	boolean edit(Map<String, Object> map);
+	boolean edit(Map<String, Object> map);
 	
 //	Map<String, Object> load(Map<String, Object> map);
 

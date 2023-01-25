@@ -23,10 +23,10 @@ public class ProjectDAO {
 //	public Map<String, Object> userInfoLoad(Map<String, Object> map) {
 //		  return this.sqlSessionTemplate.selectOne("user.userinfo_load", map);
 //		}
-//	
-//	public int userupdate(Map<String, Object> map) {
-//		  return this.sqlSessionTemplate.update("user.userupdate", map);
-//		}
+	
+	public int userupdate(Map<String, Object> map) {
+		  return this.sqlSessionTemplate.update("user.userupdate", map);
+		}
 	
 	public int boardinsert(Map<String, Object> map) {
 		  return this.sqlSessionTemplate.insert("board.boardinsert", map);

@@ -79,7 +79,7 @@ li.selectbar1{
 		<table class="type07">
 			<tr>
 				<th scope="row">아이디</th>
-				<td>${userdata.user_id }</td>
+				<td>${signIn.user_id }</td>
 			</tr>
 			<!-- <tr>
 				<th scope="row">비밀번호</th>
@@ -87,15 +87,15 @@ li.selectbar1{
 			</tr> -->
 			<tr>
 				<th scope="row">전화번호</th>
-				<td>${userdata.user_tel }</td>
+				<td>${signIn.user_tel }</td>
 			</tr>
 			<tr>
 				<th scope="row">이메일</th>
-				<td>${userdata.email }</td>
+				<td>${signIn.email }</td>
 			</tr>
 			<tr>
 				<th scope="row">닉네임</th>
-				<td>${userdata.nickname }</td>
+				<td>${signIn.nickname }</td>
 			</tr>
 		</table>
 	</div>

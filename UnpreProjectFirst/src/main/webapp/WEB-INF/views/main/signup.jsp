@@ -24,7 +24,7 @@
         </header>
 
         <!--회원가입 부분-->
-        <form action="" name="member" method="post" onsubmit="return join();">
+        <form action="signup.do" method="post">
         <section class="signup-wrap">
 
             <div>
@@ -38,16 +38,9 @@
 
                 <h3>비밀번호</h3>
                 <span class="signup-input">
-                    <input id="signup-pw" type="text" name="pwd"></input>
-                    <span class="pw-lock"></span>
-                </span>
-
-                <h3>비밀번호 재확인</h3>
-                <span class="signup-input">
-                    <input id="signup-pww" type="text"></input>
-                    <span class="pww-lock"></span>
-                </span>
-
+                    <input id="signup-pw" type="password" name="pwd"></input>
+                    
+                </span>       
             </div>
 
             <div style="margin-top: 35px;">
@@ -56,70 +49,38 @@
                 <span class="signup-input">
                     <input id="signup-name" type="text" name="user_name"></input>
                 </span>
+            
 
-                <h3>생년월일</h3>
-                <span style="display: flex;">
-                    <span class="signup-input-birth">
-                        <input id="signup-birth-yy" type="text" placeholder="년(4자)" class="int" maxlength="4"></input>
-                    </span>
-                    <span class="signup-input-birth" style="margin-left: 10px;">
-                        <select id="signup-birth-mm" class="selectbox" name="month" onchange="">
-                            <option value="month">월</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                        </select>
-                    </span>
-                    <span class="signup-input-birth" style="margin-left: 10px;">
-                        <input id="signup-birth-dd" type="text" placeholder="일" class="int" maxlength="2"></input>
-                    </span>
-                </span>
+            </div>
 
-                <span class="choice">
+            <div style="margin-top: 35px;">
+                <!--휴대전화-->
+                <h3>휴대전화</h3>            
+                <div style="display: flex;">
+                    <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
+                        <input id="signup-phone" type="text" placeholder="전화번호 입력" name="user_tel"></input>
+                    </span>
+                   
+                </div>
+                
+             
+            </div>
+            
+            <span class="choice">
                     <h3>본인 확인 이메일</h3>
                     
                 </span>
                 <span class="signup-input">
                     <input id="signup-email" type="text" placeholder="ex) abcd123@updt.com" name="email"></input>
                 </span>
-
-            </div>
-
-            <div style="margin-top: 35px;">
-                <!--휴대전화-->
-                <h3>휴대전화</h3>
                 <span class="signup-input">
-                    <select id="signup-country" class="selectbox" onchange="">
-                        <option value="ko">대한민국 +82</option>
-                    </select>
+                    <input id="signup-nickname" type="text" name="nickname"></input>
                 </span>
-                <div style="display: flex;">
-                    <span class="signup-input" style="width:100%; margin: 10px 0px 0px 0px">
-                        <input id="signup-phone" type="text" placeholder="전화번호 입력" name="user_tel"></input>
-                    </span>
-                    <span class="cnum-btn-wrap">
-                        <button id="cnum-btn" style="height:50px; padding-bottom:5px; text-align:center;">인증번호 받기</button>
-                    </span>
-                </div>
-                
-                <span class="signup-input-c" style="margin-top: 10px;">
-                    <input id="signup-cnum" type="text" placeholder="인증번호 입력하세요"></input>
-                </span>
-            </div>
 
             <div>
                 <!--가입하기-->
                 <div class="signup-btn-wrap">
-                	<button id="signup-btn" style="height:50px; padding-bottom:5px;" onclick="signCheck">가입하기</button>
+                	<button id="signup-btn" style="height:50px; padding-bottom:5px;" type="submit">가입하기</button>
                 </div>
             </div>
         </section>
