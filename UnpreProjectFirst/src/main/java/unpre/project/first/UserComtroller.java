@@ -18,12 +18,12 @@ public class UserComtroller {
 	@Autowired
 	ProjectService projectservice;
 	
-	@RequestMapping(value="/sign_up", method= RequestMethod.GET)
+	@RequestMapping(value="/signup", method= RequestMethod.GET)
 	public ModelAndView signup() {
-		return new ModelAndView("main/sign_up");
+		return new ModelAndView("main/signup");
 	}
 	
-	@RequestMapping(value = "/sign_up", method = RequestMethod.POST)
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public ModelAndView createPost(@RequestParam Map<String, Object> map) {
 	    ModelAndView mav = new ModelAndView();
 
@@ -44,7 +44,6 @@ public class UserComtroller {
 	    Map<String, Object> userinfo = this.projectservice.check(map);
 
 	    ModelAndView mav = new ModelAndView();
-	    mav.addObject("data", userinfo);
 	   
 	    HttpSession session = request.getSession();
 	    if(userinfo != null) {
@@ -66,6 +65,27 @@ public class UserComtroller {
 		
 		return "redirect:/main";
 	}
+	
+	/*
+	 * @RequestMapping(value="/mypage", method= RequestMethod.GET) public
+	 * ModelAndView mypage() { return new ModelAndView("main/mypage"); }
+	 * 
+	 * @RequestMapping(value="/mypage.do", method= RequestMethod.GET) public
+	 * ModelAndView mypagedo(@RequestParam Map<String, Object> map) { Map<String,
+	 * Object> userinfo = this.projectservice.load(map); ModelAndView mav = new
+	 * ModelAndView(); if(userinfo != null) { mav.addObject("userdata", userinfo);
+	 * mav.setViewName("redirect:/mypage"); } return mav; }
+	 * 
+	 * @RequestMapping(value="/mypagechange", method= RequestMethod.GET) public
+	 * ModelAndView mypagechange() { return new ModelAndView("main/mypagechange"); }
+	 * 
+	 * @RequestMapping(value="/mypageupdate.do", method= RequestMethod.POST) public
+	 * ModelAndView mypageupdate(@RequestParam Map<String, Object> map) {
+	 * ModelAndView mav= new ModelAndView();
+	 * 
+	 * boolean isUpdateSuccess = this.projectservice.edit(map); if(isUpdateSuccess)
+	 * { mav.setViewName("redirect:/mypage"); } return mav; }
+	 */
 	
 	@RequestMapping(value="/board.do")
 	public String board() {	

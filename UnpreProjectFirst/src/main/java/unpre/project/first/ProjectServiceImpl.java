@@ -34,4 +34,15 @@ public class ProjectServiceImpl implements ProjectService{
 	    return this.projectdao.select(map);
 	}
 	
+//	@Override
+//	public boolean edit(Map<String, Object> map) {
+//	    int affectRowCount = this.projectdao.userupdate(map);
+//	    return affectRowCount == 1;
+//	}
+//	
+//	@Override
+//	public Map<String, Object> load(Map<String, Object> map){
+//	    return this.projectdao.select(map);
+//	}
+	
 }

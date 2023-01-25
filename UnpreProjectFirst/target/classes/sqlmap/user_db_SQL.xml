@@ -14,7 +14,25 @@
     <![CDATA[
     select *
     from user
-    where user_id = #{userID} and pwd = #{userPW}
+    where user_id = #{user_id} and pwd = #{pwd}
     ]]>
 	</select>
+	
+	<select id="userinfo_load" parameterType="hashMap" resultType="hashMap">  
+    <![CDATA[
+    select * from user
+    ]]>
+	</select>
+	
+	<update id="userupdate" parameterType="hashMap">  
+    <![CDATA[
+    update user set
+    pwd = #{pwd},
+    user_tel = #{user_tel},
+    email = #{email},
+    nickname = #{nickname}
+    where
+    user_id = #{user_id}
+    ]]>
+	</update>
 </mapper>

@@ -48,6 +48,13 @@
 							style="border-right: 2px solid; width: 85px; text-align: center; margin-top: 15px;">
 							<a class="nav-link active" href="bar">Bar</a>
 						</li>
+						<c:if test="${signIn.user_id != null}">
+						<li class="nav-item"
+							style="border-right: 2px solid; width: 85px; text-align: center; margin-top: 15px;">
+							<a class="nav-link active" href="mypage.do">마이페이지</a>
+						</li>
+						</c:if>
+						
 						<li class="nav-item"
 							style="width: 85px; text-align: center; margin-top: 15px;">
 							<c:if test="${signIn == null }">
