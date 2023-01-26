@@ -1,5 +1,6 @@
 package unpre.project.first;
 
+import java.util.List;
 import java.util.Map;
 
 public interface UserService {
@@ -9,5 +10,8 @@ public interface UserService {
 	Map<String, Object> check(Map<String, Object> map);
 	
 	boolean edit(Map<String, Object> map);
+
+	//내 게시글 목록
+	List<Map<String, Object>> myList(Map<String, Object> map);
 
 }

@@ -40,10 +40,10 @@ public class WriteServiceImpl implements WriteService{
 		return affectRowCount == 1;
 
 		}
+		
 		@Override  
 		public List<Map<String, Object>> list(Map<String, Object> map){  
 		return this.writeDao.selectList(map);
-		
 		}
 }
 

@@ -3,6 +3,9 @@ package unpre.project.first.write;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,10 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import unpre.project.first.UserService;
+
 @Controller
 public class WriteController {
 	@Autowired
 	WriteService writeService;
+	UserService userservice;
 
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
 	public ModelAndView write() {
@@ -23,11 +29,15 @@ public class WriteController {
 
 	// 게시글 등록 컨트롤러
 	@RequestMapping(value = "/write.do", method = RequestMethod.POST)
-	public ModelAndView createPost(@RequestParam Map<String, Object> map) {
+	public ModelAndView createPost(@RequestParam Map<String, Object> map, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 
 		String bNum = this.writeService.create(map);
+		List<Map<String, Object>> mylist = this.userservice.myList(map);
 		if (bNum != null) {
+			HttpSession session = request.getSession();
+			session.removeAttribute("myboarddata");
+			session.setAttribute("myboarddata", mylist);
 			mav.setViewName("redirect:/main");
 		} 
 
@@ -93,8 +103,14 @@ public class WriteController {
 
 		return mav;
 	}
+	
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public ModelAndView list() {
+		return new ModelAndView("main/list");
+	}
+	
 
-	@RequestMapping(value = "/list") // 전체 목록
+	@RequestMapping(value = "/list.do") // 전체 목록
 	public ModelAndView list(@RequestParam Map<String, Object> map) {
 
 		List<Map<String, Object>> list = this.writeService.list(map);
@@ -107,7 +123,7 @@ public class WriteController {
 			mav.addObject("keyword", map.get("keyword"));
 		}
 
-		mav.setViewName("alcohol/write/list");
+		mav.setViewName("main/list");
 		return mav;
 	}
 

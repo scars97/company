@@ -11,4 +11,15 @@
     ]]>
 	</insert>
 
+	<!-- 내가 쓴 글 찾아오기 -->
+	<select id="mypageboard" parameterType="hashMap"
+		resultType="hashMap">  
+	<![CDATA[  
+	select 
+	b_num, b_title, nickname, cdate, b_content, category
+	from board
+	where user_id = #{user_id}
+	]]>
+	</select>
+
 </mapper>

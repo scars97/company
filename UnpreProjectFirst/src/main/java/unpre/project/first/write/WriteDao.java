@@ -38,6 +38,6 @@ public class WriteDao {
 
 	// 게시글 목록 메소드
 	public List<Map<String, Object>> selectList(Map<String, Object> map) {
-		return this.sqlSessionTemplate.selectList("board.select_list", map);
+		return this.sqlSessionTemplate.selectList("board.mypageboard", map);
 	}
 }

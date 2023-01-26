@@ -58,9 +58,9 @@
 						<li class="nav-item"
 							style="width: 85px; text-align: center; margin-top: 15px;">
 							<c:if test="${signIn == null }">
-								<a class="nav-link active" href="login.do">로그인</a>
+								<a class="nav-link active" href="login">로그인</a>
 							</c:if> <c:if test="${signIn != null }">
-								<a class="nav-link active" href="logout.do">${signIn.user_id }로그아웃</a>
+								<a class="nav-link active" href="logout.do">${signIn.nickname }로그아웃</a>
 							</c:if>
 						</li>
 					</ul>

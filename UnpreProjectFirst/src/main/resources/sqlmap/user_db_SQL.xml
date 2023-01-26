@@ -9,8 +9,9 @@
     (#{user_id}, #{pwd}, #{user_name}, #{user_tel}, #{email}, #{nickname})
     ]]>
 	</insert>
-	
-	<select id="logincheck" parameterType="hashMap" resultType="hashMap">  
+
+	<select id="logincheck" parameterType="hashMap"
+		resultType="hashMap">  
     <![CDATA[
     select *
     from user
@@ -29,4 +30,6 @@
     user_id = #{user_id}
     ]]>
 	</update>
+
+
 </mapper>
