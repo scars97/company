@@ -1,7 +1,5 @@
 INDEX VERSION 1.131
-C:\webstudyA\새 폴더\company\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2371775475.index
+C:\Users\qktjd\Desktop\webstudyA\새 폴더\company\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2189577694.index
 \UnpreProjectFirst\src\main\java
-C:\webstudyA\새 폴더\company\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1515448244.index
-\SampleSpringYes\src\main\java
-C:\webstudyA\새 폴더\company\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2189577694.index
+C:\Users\qktjd\Desktop\webstudyA\새 폴더\company\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2371775475.index
 \UnpreProjectFirst\src\main\java

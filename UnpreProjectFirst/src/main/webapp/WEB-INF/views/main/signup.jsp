@@ -50,7 +50,6 @@
                     <input id="signup-name" type="text" name="user_name"></input>
                 </span>
             
-
             </div>
 
             <div style="margin-top: 35px;">
@@ -67,12 +66,14 @@
             </div>
             
             <span class="choice">
-                    <h3>본인 확인 이메일</h3>
+                    <h3>이메일</h3>
                     
                 </span>
                 <span class="signup-input">
                     <input id="signup-email" type="text" placeholder="ex) abcd123@updt.com" name="email"></input>
                 </span>
+                
+                <h3>닉네임</h3>
                 <span class="signup-input">
                     <input id="signup-nickname" type="text" name="nickname"></input>
                 </span>
@@ -80,7 +81,8 @@
             <div>
                 <!--가입하기-->
                 <div class="signup-btn-wrap">
-                	<button id="signup-btn" style="height:50px; padding-bottom:5px;" type="submit">가입하기</button>
+                	<button id="signup-btn" style="height:50px; padding-bottom:5px;" 
+                		type="submit" onclick="signup_success();">가입하기</button>
                 </div>
             </div>
         </section>
@@ -91,6 +93,10 @@
     <jsp:include page="./common/footer.jsp"/>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/resources/js/signup.js"></script>
+    <script>
+    	function signup_success(){
+    		alert("회원가입이 완료되었습니다.")
+    	}
+    </script>
 </body>
 </html>

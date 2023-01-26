@@ -48,6 +48,8 @@
 					style="width: 25.9cm; border-radius: 4px; height: 1cm;">
 			</div>
 
+				<input type="hidden" name="nickname" value="${signIn.nickname }">
+				
 			<div>
 				<br>
 
@@ -55,7 +57,6 @@
 					placeholder="자유롭게 작성해 보세요." name="b_content" class="form-control"
 					style="height: 100px"></textarea>
 					
-
 			</div>
 			<input type="hidden" name="user_id" value="${signIn.user_id }">
 

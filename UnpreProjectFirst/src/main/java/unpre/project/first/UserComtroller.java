@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserComtroller {
 
 	@Autowired
-	ProjectService projectservice;
+	UserService userservice;
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public ModelAndView signup() {
@@ -27,7 +27,7 @@ public class UserComtroller {
 	public ModelAndView createPost(@RequestParam Map<String, Object> map) {
 		ModelAndView mav = new ModelAndView();
 
-		String userId = this.projectservice.create(map);
+		String userId = this.userservice.create(map);
 		if (userId != null) {
 			mav.setViewName("redirect:/login.do");
 		}
@@ -41,7 +41,7 @@ public class UserComtroller {
 
 	@RequestMapping(value = "/userlogin.do", method = RequestMethod.POST)
 	public ModelAndView logincheck(@RequestParam Map<String, Object> map, HttpServletRequest request) {
-		Map<String, Object> userinfo = this.projectservice.check(map);
+		Map<String, Object> userinfo = this.userservice.check(map);
 
 		ModelAndView mav = new ModelAndView();
 
@@ -71,17 +71,6 @@ public class UserComtroller {
 		return new ModelAndView("main/mypage");
 	}
 
-//	@RequestMapping(value = "/mypage.do", method = RequestMethod.GET)
-//	public ModelAndView mypagedo(@RequestParam Map<String, Object> map) {
-//		Map<String, Object> userinfo = this.projectservice.load(map);
-//		ModelAndView mav = new ModelAndView();
-//		if (userinfo != null) {
-//			mav.addObject("userdata", userinfo);
-//			mav.setViewName("redirect:/mypage");
-//		}
-//		return mav;
-//	}
-
 	@RequestMapping(value = "/mypagechange", method = RequestMethod.GET)
 	public ModelAndView mypagechange() {
 		return new ModelAndView("main/mypagechange");
@@ -91,28 +80,16 @@ public class UserComtroller {
 	public ModelAndView mypageupdate(@RequestParam Map<String, Object> map, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 
-		boolean isUpdateSuccess = this.projectservice.edit(map);
+		boolean isUpdateSuccess = this.userservice.edit(map);
+		Map<String, Object> userinfo = this.userservice.check(map);
 		if (isUpdateSuccess) {
-			HttpSession session = request.getSession();
-			session.invalidate();
-			mav.setViewName("redirect:/login.do");
+			HttpSession beforeSession = request.getSession();
+			beforeSession.invalidate();
+			HttpSession afterSession = request.getSession();
+			afterSession.setAttribute("signIn", userinfo);
+			mav.setViewName("redirect:/mypage");
 		}
 		return mav;
 	}
 
-//	@RequestMapping(value = "/board.do")
-//	public String board() {
-//		return "main/board_write";
-//	}
-//
-//	@RequestMapping(value = "/board_write.do", method = RequestMethod.POST)
-//	public ModelAndView boardcreatePost(@RequestParam Map<String, Object> map) {
-//		ModelAndView mav = new ModelAndView();
-//		String btitle = this.projectservice.boardcreate(map);
-//		System.out.println(btitle);
-//		if (btitle != null) {
-//			mav.setViewName("redirect:/login.do");
-//		}
-//		return mav;
-//	}
 }

@@ -132,7 +132,7 @@ li.selectbar1 {
 
 			</table>
 			<div class="submit_button">
-				<input disabled id=submit type=submit value="변경사항을 확정하기" onclick="again_login();">
+				<input disabled id=submit type=submit value="변경사항을 확정하기" onclick="update_success();">
 			</div>
 		</form>
 	</div>

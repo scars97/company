@@ -50,7 +50,7 @@ function change_pw() {
 		document.getElementById("nickname_button").value = "확정됨";
 	}
 	
-	function again_login(){
-		alert("정보가 변경되었습니다. 다시 로그인해주세요.");
+	function update_success(){
+		alert("정보가 변경되었습니다.");
 	}
 	

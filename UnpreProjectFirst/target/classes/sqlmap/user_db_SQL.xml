@@ -17,13 +17,7 @@
     where user_id = #{user_id} and pwd = #{pwd}
     ]]>
 	</select>
-	
-	<select id="userinfo_load" parameterType="hashMap" resultType="hashMap">  
-    <![CDATA[
-    select * from user
-    ]]>
-	</select>
-	
+
 	<update id="userupdate" parameterType="hashMap">  
     <![CDATA[
     update user set

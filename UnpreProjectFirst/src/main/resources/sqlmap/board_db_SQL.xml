@@ -5,9 +5,9 @@
 		useGeneratedKeys="true" keyProperty="b_num">  
     <![CDATA[
     insert into board
-    (b_title, b_content,category, user_id)
+    (b_title, nickname, b_content,category, user_id)
     values
-    (#{b_title}, #{b_content}, #{category}, #{user_id})
+    (#{b_title}, #{nickname}, #{b_content}, #{category}, #{user_id})
     ]]>
 	</insert>
 
