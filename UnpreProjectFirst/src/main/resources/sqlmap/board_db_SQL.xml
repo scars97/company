@@ -11,12 +11,22 @@
     ]]>
 	</insert>
 
-	<!-- 내가 쓴 글 찾아오기 -->
-	<select id="mypageboard" parameterType="hashMap"
+	<!-- 전체 글 목록 -->
+	<select id="boardlist" parameterType="hashMap"
 		resultType="hashMap">  
 	<![CDATA[  
 	select 
-	b_num, b_title, nickname, cdate, b_content, category
+	b_num, b_title, nickname, cdate, b_content, category, user_id
+	from board
+	]]>
+	</select>
+	
+	<!-- 내가 쓴 글 찾아오기 -->
+	<select id="myboardlist" parameterType="hashMap"
+		resultType="hashMap">  
+	<![CDATA[  
+	select 
+	b_num, b_title, nickname, cdate, b_content, category, user_id
 	from board
 	where user_id = #{user_id}
 	]]>

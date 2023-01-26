@@ -37,7 +37,7 @@
 						
 						<li class="nav-item"
 							style="border-right: 2px solid; width: 85px; text-align: center; margin-top: 15px;">
-							<a class="nav-link active" href="board.do">커뮤니티</a>
+							<a class="nav-link active" href="list">커뮤니티</a>
 						</li>
 						<li class="nav-item"
 							style="border-right: 2px solid; width: 85px; text-align: center; margin-top: 15px;">

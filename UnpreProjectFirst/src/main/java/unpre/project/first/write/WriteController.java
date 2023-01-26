@@ -29,18 +29,13 @@ public class WriteController {
 
 	// 게시글 등록 컨트롤러
 	@RequestMapping(value = "/write.do", method = RequestMethod.POST)
-	public ModelAndView createPost(@RequestParam Map<String, Object> map, HttpServletRequest request) {
+	public ModelAndView createPost(@RequestParam Map<String, Object> map) {
 		ModelAndView mav = new ModelAndView();
 
 		String bNum = this.writeService.create(map);
-		List<Map<String, Object>> mylist = this.userservice.myList(map);
 		if (bNum != null) {
-			HttpSession session = request.getSession();
-			session.removeAttribute("myboarddata");
-			session.setAttribute("myboarddata", mylist);
-			mav.setViewName("redirect:/main");
+			mav.setViewName("redirect:/list");
 		} 
-
 		return mav;
 	}
 
@@ -104,13 +99,9 @@ public class WriteController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public ModelAndView list() {
-		return new ModelAndView("main/list");
-	}
 	
 
-	@RequestMapping(value = "/list.do") // 전체 목록
+	@RequestMapping(value = "/list") // 전체 목록
 	public ModelAndView list(@RequestParam Map<String, Object> map) {
 
 		List<Map<String, Object>> list = this.writeService.list(map);

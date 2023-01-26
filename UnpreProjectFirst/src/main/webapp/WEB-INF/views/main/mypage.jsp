@@ -67,7 +67,7 @@ li.selectbar1{
 		<div>
 			<ul class="selectbar">
 				<li class="selectbar1"><a href="mypagechange">내 정보 수정</a></li>
-				<li class="selectbar1"><a href="mypagelist">내가 쓴 글</a></li>
+				<li class="selectbar1"><a href="mypageboard">내가 쓴 글</a></li>
 			</ul>
 		</div>
 	</section>

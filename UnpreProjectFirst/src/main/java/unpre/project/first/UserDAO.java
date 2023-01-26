@@ -27,7 +27,7 @@ public class UserDAO {
 	
 	//내 게시글 목록 메소드
 	public List<Map<String, Object>> selectMyList(Map<String, Object> map) {
-		return this.sqlSessionTemplate.selectList("board.mypageboard", map);
+		return this.sqlSessionTemplate.selectList("board.myboardlist", map);
 	}
 	
 }

@@ -51,8 +51,8 @@ public class UserComtroller {
 		if (userinfo != null) {
 			session.setAttribute("signIn", userinfo);
 			session.setAttribute("myboarddata", mylist);
-//	    	System.out.println(session.getAttribute("signIn"));
-
+	    	System.out.println(session.getValue("signIn"));
+	    	
 			mav.setViewName("redirect:/main");
 		} else {
 			session.setAttribute("signIn", null);
@@ -85,22 +85,27 @@ public class UserComtroller {
 
 		boolean isUpdateSuccess = this.userservice.edit(map);
 		Map<String, Object> userinfo = this.userservice.check(map);
-		List<Map<String, Object>> mylist = this.userservice.myList(map);
+		
 		if (isUpdateSuccess) {
-			HttpSession beforeSession = request.getSession();
-			beforeSession.invalidate();
 			HttpSession afterSession = request.getSession();
 			afterSession.setAttribute("signIn", userinfo);
-			afterSession.setAttribute("myboarddata", mylist);
+			
 			mav.setViewName("redirect:/mypage");
 		}
 		return mav;
 	}
 
-	@RequestMapping(value = "/mypagelist", method = RequestMethod.GET)
-	public ModelAndView mypagelist() {
-		return new ModelAndView("main/mypagelist");
+	@RequestMapping(value = "/mypageboard", method = RequestMethod.GET)
+	public ModelAndView mypageboard(@RequestParam Map<String, Object> map, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		HttpSession afterSession = request.getSession();
+		afterSession.setAttribute("myboarddata", userinfo);
+		if (map.containsKey("keyword")) {
+			mav.addObject("keyword", map.get("keyword"));
+		}
+		mav.setViewName("main/mypageboard");
+		
+		return mav;
 	}
-	
 
 }
