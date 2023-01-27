@@ -9,6 +9,7 @@ public interface UserService {
 
 	Map<String, Object> check(Map<String, Object> map);
 	
+	//마이페이지 정보변경
 	boolean edit(Map<String, Object> map);
 
 	//내 게시글 목록

@@ -38,7 +38,7 @@ public class WriteController {
 		if (bNum != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("myboarddata", updateMyList);
-			mav.setViewName("redirect:/list");
+			mav.setViewName("redirect:/detail?bNum=" + bNum);
 		} 
 		return mav;
 	}
@@ -55,7 +55,7 @@ public class WriteController {
 		String bNum = map.get("bNum").toString();
 
 		mav.addObject("bNum", bNum); // 파라미터 넘겨주는?
-		mav.setViewName("/alcohol/write/detail"); // jsp 경로
+		mav.setViewName("/main/detail"); // jsp 경로
 
 		return mav;
 		}
@@ -68,7 +68,7 @@ public class WriteController {
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("data", detailMap);
-		mav.setViewName("/alcohol/write/update");
+		mav.setViewName("/main/update");
 		return mav;
 	}
 
@@ -135,7 +135,7 @@ public class WriteController {
 			mav.addObject("keyword", map.get("keyword"));
 		}
 
-		mav.setViewName("alcohol/write/list_wine");
+		mav.setViewName("main/list_wine");
 		return mav;
 	}
 
@@ -152,7 +152,7 @@ public class WriteController {
 			mav.addObject("keyword", map.get("keyword"));
 		}
 
-		mav.setViewName("alcohol/write/list_beer");
+		mav.setViewName("main/list_beer");
 		return mav;
 	}
 
@@ -169,7 +169,7 @@ public class WriteController {
 			mav.addObject("keyword", map.get("keyword"));
 		}
 
-		mav.setViewName("alcohol/write/list_whisky");
+		mav.setViewName("main/list_whisky");
 		return mav;
 	}
 }

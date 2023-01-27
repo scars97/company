@@ -21,6 +21,7 @@ public class UserDAO {
 		  return this.sqlSessionTemplate.selectOne("user.logincheck", map);
 		}
 	
+	//마이페이지 정보변경
 	public int userupdate(Map<String, Object> map) {
 		  return this.sqlSessionTemplate.update("user.userupdate", map);
 		}

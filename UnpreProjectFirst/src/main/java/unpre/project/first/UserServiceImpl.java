@@ -26,6 +26,7 @@ public class UserServiceImpl implements UserService{
 	    return this.userdao.select(map);
 	}
 	
+	//마이페이지 정보변경 업데이트
 	@Override
 	public boolean edit(Map<String, Object> map) {
 	    int affectRowCount = this.userdao.userupdate(map);

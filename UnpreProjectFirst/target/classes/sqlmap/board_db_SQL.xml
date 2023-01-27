@@ -20,7 +20,7 @@
 	from board
 	]]>
 	</select>
-	
+
 	<!-- 내가 쓴 글 찾아오기 -->
 	<select id="myboardlist" parameterType="hashMap"
 		resultType="hashMap">  
@@ -32,4 +32,41 @@
 	]]>
 	</select>
 
+
+	<!-- 게시글 상세 쿼리 -->
+	<select id="select_detail" parameterType="hashMap"
+		resultType="hashMap">
+    <![CDATA[
+        select
+        b_title,
+        category,
+        b_content,
+      cdate
+        from
+        board
+        where
+        b_num = #{bNum}
+    ]]>
+	</select>
+
+	<!-- 게시글 업데이트 쿼리 -->
+	<update id="update" parameterType="hashMap">  
+   <![CDATA[  
+   update board set  
+   b_title = #{b_title},  
+   category = #{category},  
+   b_content = #{b_content}
+   where  
+   b_num = #{bNum}  
+   ]]>
+	</update>
+
+	<!-- 게시글 삭제 쿼리 -->
+	<delete id="delete" parameterType="hashMap">  
+   <![CDATA[  
+   delete from board  
+   where  
+   b_num = #{bNum}  
+   ]]>
+	</delete>
 </mapper>

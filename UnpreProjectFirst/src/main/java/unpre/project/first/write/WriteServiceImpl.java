@@ -16,7 +16,7 @@ public class WriteServiceImpl implements WriteService{
 		public String create(Map<String, Object> map) {
 			int affectRowCount = this.writeDao.insert(map);
 			if (affectRowCount == 1) {
-				return map.get("b_title").toString();
+				return map.get("b_num").toString();
 			}
 			return null;
 			
