@@ -51,7 +51,7 @@ public class UserComtroller {
 		if (userinfo != null) {
 			session.setAttribute("signIn", userinfo);
 			session.setAttribute("myboarddata", mylist);
-	    	System.out.println(session.getValue("signIn"));
+	    	
 	    	
 			mav.setViewName("redirect:/main");
 		} else {
@@ -98,8 +98,7 @@ public class UserComtroller {
 	@RequestMapping(value = "/mypageboard", method = RequestMethod.GET)
 	public ModelAndView mypageboard(@RequestParam Map<String, Object> map, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
-		HttpSession afterSession = request.getSession();
-		afterSession.setAttribute("myboarddata", userinfo);
+		
 		if (map.containsKey("keyword")) {
 			mav.addObject("keyword", map.get("keyword"));
 		}

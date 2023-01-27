@@ -29,11 +29,15 @@ public class WriteController {
 
 	// 게시글 등록 컨트롤러
 	@RequestMapping(value = "/write.do", method = RequestMethod.POST)
-	public ModelAndView createPost(@RequestParam Map<String, Object> map) {
+	public ModelAndView createPost(@RequestParam Map<String, Object> map, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 
 		String bNum = this.writeService.create(map);
+		//로그인할때 가져온 사용자 게시글db
+		List<Map<String, Object>> updateMyList = this.writeService.updateMyBoardList(map);
 		if (bNum != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("myboarddata", updateMyList);
 			mav.setViewName("redirect:/list");
 		} 
 		return mav;

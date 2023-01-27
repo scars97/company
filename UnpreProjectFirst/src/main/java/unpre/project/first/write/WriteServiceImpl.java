@@ -11,7 +11,7 @@ public class WriteServiceImpl implements WriteService{
 	@Autowired
 	WriteDao writeDao;
 		
-		
+		//게시글 작성
 		@Override
 		public String create(Map<String, Object> map) {
 			int affectRowCount = this.writeDao.insert(map);
@@ -22,11 +22,13 @@ public class WriteServiceImpl implements WriteService{
 			
 		}
 		
+		//게시글 상세
 		@Override
 		public Map<String, Object> detail(Map<String, Object> map){
 		    return this.writeDao.selectDetail(map);
 		}
 		
+		//게시글 수정
 		@Override  
 		public boolean edit(Map<String, Object> map) {  
 		int affectRowCount = this.writeDao.update(map);  
@@ -34,6 +36,7 @@ public class WriteServiceImpl implements WriteService{
 
 		}
 		
+		//게시글 삭제
 		@Override  
 		public boolean remove(Map<String, Object> map) {
 		int affectRowCount = this.writeDao.delete(map);  
@@ -41,10 +44,18 @@ public class WriteServiceImpl implements WriteService{
 
 		}
 		
+		//게시글 목록
 		@Override  
 		public List<Map<String, Object>> list(Map<String, Object> map){  
 		return this.writeDao.selectList(map);
 		}
+		
+		//마이페이지 게시글 목록 추가
+		@Override  
+		public List<Map<String, Object>> updateMyBoardList(Map<String, Object> map){  
+		return this.writeDao.updateMyBoard(map);
+		}
+
 }
 
 

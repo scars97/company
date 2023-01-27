@@ -35,6 +35,6 @@ public class UserServiceImpl implements UserService{
 	//내 게시글 목록
 	@Override  
 	public List<Map<String, Object>> myList(Map<String, Object> map){  
-	return this.userdao.selectMyList(map);
+		return this.userdao.selectMyList(map);
 	}
 }

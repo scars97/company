@@ -40,4 +40,9 @@ public class WriteDao {
 	public List<Map<String, Object>> selectList(Map<String, Object> map) {
 		return this.sqlSessionTemplate.selectList("board.boardlist", map);
 	}
+	
+	//글 작성 후 마이페이지 게시글 목록에도 추가
+	public List<Map<String, Object>> updateMyBoard(Map<String, Object> map) {
+		return this.sqlSessionTemplate.selectList("board.myboardlist", map);
+	}
 }
