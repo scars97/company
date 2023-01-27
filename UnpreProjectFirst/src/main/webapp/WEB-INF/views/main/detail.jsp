@@ -38,12 +38,11 @@
 	<fmt:formatDate value="${data.cdate}" pattern="yyyy.MM.dd.hh.mm.ss" />&nbsp;</span>
 	<hr>
 	
-	
 	<div style=" height: 10cm; width: 27cm;
 	padding:9px; margin: 0 auto;">
 	${ data.b_content}
 	</div>
-	
+
 	<hr><!-- 가로 선 -->
 	
 	<div></div>
