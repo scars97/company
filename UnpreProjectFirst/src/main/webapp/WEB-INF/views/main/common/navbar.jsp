@@ -9,7 +9,7 @@
 		style="height: 59px;">
 
 		<div class="container">
-			<a class="navbar-brand" href="#">Unpredictable</a>
+			<a class="navbar-brand" href="main">Unpredictable</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -40,63 +40,33 @@
 						style="border-right: 2px solid; width: 85px; text-align: center; margin-top: 15px;">
 						<a class="nav-link active" href="bar">Bar</a>
 					</li>
-					
+
 					<c:if test="${signIn == null }">
-					<li class="nav-item"
-						style="width: 85px; text-align: center; margin-top: 15px;">
-						
-							<a class="nav-link active" href="login">로그인</a> 
-					</li>
-					</c:if>
-					
-					<c:if test="${signIn.user_id != null}">
-						<li class="nav-item dropdown" style=" width: 85px; text-align: center; margin-top: 15px;"><a
-							class="nav-link dropdown-toggle" href="#" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"> Dropdown </a>
-							<ul class="dropdown-menu" style="width:90px;">
-								<li class="nav-item"
-							style=" width: 85px; text-align: center; margin-top: 15px;"><a
-							class="dropdown-item" href="mypage.do">마이페이지</a></li>
-								<li>
-								<c:if test="${signIn != null }">
-								<a class="dropdown-item" href="logout.do">로그아웃</a>
-								</c:if>
-								</li>
-								
-							</ul>
-						</li>
-					</c:if>
-
-
-
-
-
-
-
-
-				<%-- 	<c:if test="${signIn.user_id != null}">
 						<li class="nav-item"
-							style="border-right: 2px solid; width: 85px; text-align: center; margin-top: 15px;">
-							<a class="nav-link active" href="mypage.do">마이페이지</a>
+							style="width: 85px; text-align: center; margin-top: 15px;">
+
+							<a class="nav-link active" href="login">로그인</a>
 						</li>
 					</c:if>
 
-					<li class="nav-item"
-						style="width: 85px; text-align: center; margin-top: 15px;">
-						<c:if
-							test="${signIn == null }">
-							<a class="nav-link active" href="login">로그인</a>
-						</c:if> 
-						
-						
-						
-						</li> --%>
+					<c:if test="${signIn.user_id != null}">
+						<li class="nav-item dropdown"
+							style="width: 85px; text-align: center; margin-top: 15px;"><a
+							class="nav-link dropdown-toggle" href="#" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false">
+								${signIn.nickname} </a>
+							<ul class="dropdown-menu"
+								style="min-width: 110px; padding-top: 5px; padding-bottom: 5px;">
+								<li class="nav-item" style="border-bottom: inset;"><a
+									class="dropdown-item" style="text-align: center;"
+									href="mypage.do">마이페이지</a></li>
+								<li><c:if test="${signIn != null }">
+										<a class="dropdown-item" style="text-align: center;"
+											href="logout.do">로그아웃</a>
+									</c:if></li>
 
-
-
-
-
-
+							</ul></li>
+					</c:if>
 
 				</ul>
 			</div>

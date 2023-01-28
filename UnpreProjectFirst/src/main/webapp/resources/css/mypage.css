@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+table.type07 {
+	border-collapse: collapse;
+	line-height: 1.5;
+	border: 1px solid #ccc;
+	margin: auto;
+	margin-bottom: 100px;
+    border-left: none;
+    border-right: none;
+}
+
+table.type07 th {
+text-align: center;
+	width: 150px;
+	padding: 10px;
+	font-weight: bold;
+	font-color: white;
+	border-bottom: 1px solid #ccc;
+	background: #1e2539;
+	color: white;
+}
+
+table.type07 td {
+	width: 350px;
+	padding: 10px;
+	vertical-align: top;
+	border: 1px solid #ccc;
+}
+
+a {
+text-decoration-line: none; color: black;
+}
+
+ul.selectbar{
+	padding-left: 0px;
+	margin-bottom: 0px;
+}
+li.selectbar1{
+	display: inline-block;
+	margin-right: 30px;
+	font-weight: bold;
+}
+
+
+.submit_button {
+	text-align: center;
+	padding-bottom: 80px;
+}
+
+.submit_button input {
+	padding: 8px;
+    width: 180px;
+    border-radius: 10px;
+    color: #1e2539;
+    font-weight: 565;
+}

@@ -10,60 +10,7 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
-<style>
-table.type07 {
-	border-collapse: collapse;
-	line-height: 1.5;
-	border: 1px solid #ccc;
-	margin: auto;
-	margin-bottom: 25px;
-	border-left: none;
-	border-right: none;
-}
-
-table.type07 th {
-	text-align: center;
-	width: 150px;
-	padding: 10px;
-	font-weight: bold;
-	font-color: white;
-	vertical-align: top;
-	border-bottom: 1px solid #ccc;
-	background: #1e2539;;
-	color: white;
-}
-
-table.type07 td {
-	width: 350px;
-	padding: 10px;
-	vertical-align: top;
-	border-bottom: 1px solid #ccc;
-}
-
-ul.selectbar {
-	padding-left: 0px;
-	margin-bottom: 0px;
-}
-
-li.selectbar1 {
-	display: inline-block;
-	margin-right: 30px;
-	font-weight: bold;
-}
-
-.submit_button {
-	text-align: center;
-	padding-bottom: 80px;
-}
-
-.submit_button input {
-	padding: 8px;
-    width: 180px;
-    border-radius: 10px;
-    color: #1e2539;
-    font-weight: 565;
-}
-</style>
+<link href="/resources/css/mypage.css" rel="stylesheet">
 </head>
 <body>
 	<!-- Navigator -->
@@ -71,28 +18,14 @@ li.selectbar1 {
 	<jsp:include page="./common/navbar.jsp" />
 
 	<!-- Content -->
-	<section class="py-4 text-center container"
-		style="border-bottom: 1px solid #dbdbdb; padding-bottom: 0 !important;">
-		<div class="row py-lg-4">
-			<div class="col-lg-6 col-md-8 mx-auto">
-				<h1 class="fw-light">MyPage</h1>
-
-			</div>
-		</div>
-		<div>
-			<ul class="selectbar">
-				<li class="selectbar1">내 정보 수정</li>
-				<li class="selectbar1">내가 쓴 글</li>
-			</ul>
-		</div>
-	</section>
+	<jsp:include page="./common/mypageheader.jsp" />
 
 	<div class="container">
 		<div class="row py-lg-5">
 			<h2 style="text-align: left; padding-left: 150px;">Change Info</h2>
 		</div>
 		<form method=post action="mypageupdate.do">
-			<table class="type07">
+			<table class="type07" style="margin-bottom: 25px;">
 				<tr>
 					<th>ID</th>
 					<td>${signIn.user_id}</td>

@@ -54,7 +54,7 @@
 				
 					<tr>
 						<th style="width: 5%;"><a href="/detail?bNum=${row.b_num}">${row.b_num}</a></th>
-						<td style="width: 10%;">${row.user_id}</td>
+						<td style="width: 10%;">${row.nickname}</td>
 						<td style="width: 10%;">${row.category}</td>
 						<td><a href="/detail?bNum=${row.b_num}">${row.b_title}</a></td>
 						<td style="width: 9%;"><fmt:formatDate value="${row.cdate}" pattern="yyyy.MM.dd" /></td>
@@ -110,4 +110,6 @@
 <!-- footer here -->
 <jsp:include page="./common/footer.jsp" />
 
+<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </html>

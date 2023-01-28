@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="user">
+
+	<!-- 회원가입 쿼리문 -->
+	<!-- #{}들어간 부분은 jsp파일에서 값이 넣어지도록 설정해줘야함 그래야 데이터 들어감 -->
 	<insert id="insert" parameterType="hashMap"
 		useGeneratedKeys="true" keyProperty="user_id">  
     <![CDATA[
@@ -10,6 +13,7 @@
     ]]>
 	</insert>
 
+    <!-- 로그인 쿼리문  -->
 	<select id="logincheck" parameterType="hashMap"
 		resultType="hashMap">  
     <![CDATA[
