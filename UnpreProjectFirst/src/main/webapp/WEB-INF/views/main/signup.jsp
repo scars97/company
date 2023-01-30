@@ -13,7 +13,7 @@
 </head>
 <body>
 <jsp:include page="./common/navbar.jsp"/>
-<hr style="border: solid 1px gray; box-shadow: 1px 1px 5px 2px gray; margin-top:-11px;">
+
 <div class="main-signup">
         <!--웹페이지 상단-->
         <header>

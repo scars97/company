@@ -45,14 +45,14 @@ public class UserComtroller {
 	@RequestMapping(value = "/userlogin.do", method = RequestMethod.POST)
 	public ModelAndView logincheck(@RequestParam Map<String, Object> map, HttpServletRequest request) {
 		Map<String, Object> userinfo = this.userservice.check(map); //입력된 유저데이터 가져옴
-		List<Map<String, Object>> mylist = this.userservice.myList(map);
+//		List<Map<String, Object>> mylist = this.userservice.myList(map);
 		ModelAndView mav = new ModelAndView();
 
 		
 		HttpSession session = request.getSession();//로그인 유지에 필요한 세션 설정
 		if (userinfo != null) { //유저 데이터가 db에 있을시
 			session.setAttribute("signIn", userinfo);//가져온 유저데이터를 세션에 설정
-			session.setAttribute("myboarddata", mylist);
+//			session.setAttribute("myboarddata", mylist);
 	    	
 	    	
 			mav.setViewName("redirect:/main");//위에 로직들을 다 실행하고 로그인되면 메인으로 넘어감
@@ -87,11 +87,11 @@ public class UserComtroller {
 		
 		boolean isUpdateSuccess = this.userservice.edit(map); //정보,게시글 닉네임 업데이트
 		Map<String, Object> updateUserInfo = this.userservice.check(map);//유저정보 불러오기
-		List<Map<String, Object>> updateBoardNickname = this.userservice.myList(map); //내 게시글 불러오기
+		List<Map<String, Object>> updateBoardNickname = this.userservice.myList(map); //내 게시글 불러오기 -- 수정필요
 		HttpSession session = request.getSession();//세션 불러오기
 		if (isUpdateSuccess) { //정보 업데이트 성공하고
 			session.setAttribute("signIn", updateUserInfo);//변경된 유저정보 세션		
-			session.setAttribute("myboarddata", updateBoardNickname);// 닉네임 변경된 게시글 세션 
+			session.setAttribute("myboarddata", updateBoardNickname);// 닉네임 변경된 게시글 세션 -- 수정필요 
 			System.out.println("변경된거임");
 			}
 			
@@ -103,6 +103,11 @@ public class UserComtroller {
 	@RequestMapping(value = "/mypageboard", method = RequestMethod.GET)
 	public ModelAndView mypageboard(@RequestParam Map<String, Object> map, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
+		List<Map<String, Object>> myList = this.userservice.myList(map); //내 게시글 불러오기 -- 수정필요
+		
+		
+		mav.addObject("myboarddata", myList);
+		
 		
 		if (map.containsKey("keyword")) {
 			mav.addObject("keyword", map.get("keyword"));

@@ -1,5 +1,6 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html;charset=utf-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -45,13 +46,21 @@
 
 	<hr><!-- 가로 선 -->
 	
-	<div></div>
-	<input type="button" value="목록" onclick="location.href='http://localhost:8081/list'" class="btn btn-secondary"></input>
-	<input type="button" value="수정" onclick="location.href='http://localhost:8081/update?bNum=${bNum}'" class="btn btn-secondary"></input>
+	<!-- 목록 -->
+	<input type="button" value="목록" onclick="location.href='http://localhost:8081/list'" class="btn btn-secondary">
+	
+	
+	<c:if test="${signIn.user_id eq data.user_id }">
+	<!-- 수정 -->
+	<input type="button" value="수정" onclick="location.href='http://localhost:8081/update?bNum=${bNum}'" class="btn btn-secondary">
+	
+	<!-- 삭제 -->
 	<form method="POST" action="/delete" style=" display: inline-block; float: right;">
 		<input type="hidden" name="bNum" value="${bNum}" />
 		<input class="btn btn-secondary" type="submit" value="삭제" style=" background-color: #455889; border-color: #455889;">
 	</form>
+	</c:if>
+	
 	</div>
 	<br>
 	

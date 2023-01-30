@@ -13,7 +13,12 @@
 		<div>
 			<ul class="selectbar">
 				<li class="selectbar1"><a href="mypagechange">내 정보 수정</a></li>
-				<li class="selectbar1"><a href="mypageboard">내가 쓴 글</a></li>
+				
+				<li class="selectbar1">
+					<button class="myboard" type="submit" name="user_id" value="${signIn.user_id }"
+						onclick="location.href='mypageboard'">내가 쓴 글</button>
+				</li>
+				
 			</ul>
 		</div>
 	</section>

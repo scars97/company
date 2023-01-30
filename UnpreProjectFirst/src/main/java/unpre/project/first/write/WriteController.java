@@ -34,10 +34,10 @@ public class WriteController {
 
 		String bNum = this.writeService.create(map);
 		//로그인할때 가져온 사용자 게시글db
-		List<Map<String, Object>> updateMyList = this.writeService.updateMyBoardList(map);
+		List<Map<String, Object>> plusMyList = this.writeService.plusMyBoard(map);
 		if (bNum != null) {
 			HttpSession session = request.getSession();
-			session.setAttribute("myboarddata", updateMyList);
+			session.setAttribute("myboarddata", plusMyList);
 			mav.setViewName("redirect:/detail?bNum=" + bNum);
 		} 
 		return mav;
@@ -78,6 +78,7 @@ public class WriteController {
 		ModelAndView mav = new ModelAndView();
 
 		boolean isUpdateSuccess = this.writeService.edit(map);
+		
 		if (isUpdateSuccess) {
 			String bNum = map.get("bNum").toString();
 			mav.setViewName("redirect:/detail?bNum=" + bNum);

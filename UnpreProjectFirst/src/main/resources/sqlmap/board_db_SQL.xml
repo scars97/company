@@ -33,14 +33,15 @@
 	</select>
 
 	<!-- 정보변경후 게시글 닉네임까지 변경 -->
-	<update id="update_board_nickname" parameterType="hashMap">  
+	<update id="update_myboard_nickname" parameterType="hashMap">  
    	<![CDATA[  
 	update board set
 	nickname = #{nickname}
 	where user_id = #{user_id};
    	]]>
 	</update>
-
+	
+	
 	<!-- 게시글 상세 쿼리 -->
 	<select id="select_detail" parameterType="hashMap"
 		resultType="hashMap">
@@ -49,7 +50,8 @@
         b_title,
         category,
         b_content,
-      cdate
+      	cdate,
+      	user_id
         from
         board
         where
@@ -62,10 +64,10 @@
    <![CDATA[  
    update board set  
    b_title = #{b_title},  
-   category = #{category},  
+   category = #{category},
    b_content = #{b_content}
-   where  
-   b_num = #{bNum}  
+   where
+   b_num = #{bNum}
    ]]>
 	</update>
 

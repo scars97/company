@@ -39,7 +39,7 @@
 		</select>
 		
 		<div style="display: inline-block;">
-		
+		<input type="hidden" name="user_id" value="${signIn.user_id }">
 		<input type="text" placeholder="제목" id="title" name="b_title"
 		style="width: 25.9cm; border-radius: 4px; height:1cm;"
 			onclick="titlecheck()" value="${ data.b_title }">

@@ -26,7 +26,7 @@ public class WriteDao {
 		return this.sqlSessionTemplate.selectOne("board.select_detail", map);
 	}
 
-	// 게시글 수정 메소드
+	// 게시글 +내 게시글 수정 메소드
 	public int update(Map<String, Object> map) {
 		return this.sqlSessionTemplate.update("board.update", map);
 	}
@@ -42,7 +42,8 @@ public class WriteDao {
 	}
 	
 	//글 작성 후 마이페이지 게시글 목록에도 추가
-	public List<Map<String, Object>> updateMyBoard(Map<String, Object> map) {
+	public List<Map<String, Object>> plusMyBoardList(Map<String, Object> map) {
 		return this.sqlSessionTemplate.selectList("board.myboardlist", map);
 	}
+	
 }

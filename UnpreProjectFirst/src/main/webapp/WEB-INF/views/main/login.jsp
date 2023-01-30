@@ -20,7 +20,7 @@
 </head>
 <body>
 	<jsp:include page="./common/navbar.jsp" />
-	
+
 	<div class="main-container">
 		<div class="main-wrap">
 			<header>
@@ -60,15 +60,21 @@
 							<i class="fab fa-facebook-square"></i><span>페이스북으로 로그인</span>
 						</button></li>
 				</ul>
-				<p class="forget-msg">아이디나 비밀번호를 잊어버리셨나요? | 아이디 / 비밀번호 찾기</p>
+				<p class="forget-msg">
+					<a href="" style="color: #4e4e4e">아이디 찾기</a>
+					&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href=""
+						style="color: #4e4e4e">비밀번호 찾기</a>
+					&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a
+						href="http://localhost:8081/signup" style="color: #4e4e4e">회원가입</a>
+				</p>
 			</section>
 
 		</div>
-		<div class="container-fluid" style="padding: 0px">
-			<jsp:include page="./common/footer.jsp" />
-		</div>
-	</div>
 
+	</div>
+	<div class="container-fluid" style="padding: 0px">
+		<jsp:include page="./common/footer.jsp" />
+	</div>
 	<script
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<script

@@ -32,6 +32,11 @@ a {
 text-decoration-line: none; color: black;
 }
 
+.myboard{
+    border: none;
+    background-color: transparent;
+}
+
 ul.selectbar{
 	padding-left: 0px;
 	margin-bottom: 0px;

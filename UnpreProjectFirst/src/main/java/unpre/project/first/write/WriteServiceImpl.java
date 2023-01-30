@@ -31,9 +31,8 @@ public class WriteServiceImpl implements WriteService{
 		//게시글 수정
 		@Override  
 		public boolean edit(Map<String, Object> map) {  
-		int affectRowCount = this.writeDao.update(map);  
-		return affectRowCount == 1;  
-
+		int boardUpdateCount = this.writeDao.update(map);
+			return boardUpdateCount == 1;
 		}
 		
 		//게시글 삭제
@@ -52,8 +51,8 @@ public class WriteServiceImpl implements WriteService{
 		
 		//마이페이지 게시글 목록 추가
 		@Override  
-		public List<Map<String, Object>> updateMyBoardList(Map<String, Object> map){  
-		return this.writeDao.updateMyBoard(map);
+		public List<Map<String, Object>> plusMyBoard(Map<String, Object> map){  
+		return this.writeDao.plusMyBoardList(map);
 		}
 
 }

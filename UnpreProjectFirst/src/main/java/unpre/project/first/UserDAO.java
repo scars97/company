@@ -30,7 +30,7 @@ public class UserDAO {
 	
 	//마이페이지 정보변경 후 게시글 닉네임 변경
 		public int updateBoardNickname(Map<String, Object> map) {
-			return this.sqlSessionTemplate.update("board.update_board_nickname", map);
+			return this.sqlSessionTemplate.update("board.update_myboard_nickname", map);
 			}
 	
 	//내 게시글 목록 메소드
